@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="moviesearch.png" />
+</head>
+<body class="min-h-screen bg-black text-white">
+    <div class="container mx-auto max-w-5xl mt-12 bg-gray-900/80 rounded-xl shadow-2xl p-8">
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Search by Title Box -->
+        <div class="flex-1 bg-gray-800/80 rounded-xl p-6 h-fit w-full flex flex-col">
+          <h1 class="text-3xl font-bold text-center mb-2 tracking-tight">Search Movie/Show by Title</h1>
+          <p class="text-white text-xs text-center mb-6">Search a movie or show by title to view streaming availability</p>
+          <form id="searchForm" class="flex gap-2 mb-8">
+            <input type="text" id="searchInput" placeholder="Search for a movie or show..." required class="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 transition" />
+            <select id="titleTypeSelect" class="px-4 py-3 rounded-lg bg-gray-800 text-white">
+              <option value="movie">Movies</option>
+              <option value="series">Shows</option>
+              <option value="both">Both</option>
+            </select>
+            <button type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold shadow-lg hover:from-pink-600 hover:to-red-600 transition">Search</button>
+          </form>
+          <div id="results"></div>
+        </div>
+        <!-- Search by Genre Box -->
+        <div class="flex-1 bg-gray-800/80 rounded-xl p-6 h-fit w-full flex flex-col">
+          <h2 class="text-3xl font-bold text-center mb-2 tracking-tight">Search Movie/Show by Genre</h2>
+          <p class="text-white text-xs text-center mb-4">Click select genre or movies to view options</p>
+          <form id="genreFilterForm" class="flex gap-2 mb-8">
+            <select id="genreFilterSelect" class="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white" required>
+              <option value="">Select Genre</option>
+            </select>
+            <select id="typeFilterSelect" class="px-4 py-3 rounded-lg bg-gray-800 text-white">
+              <option value="movie">Movies</option>
+              <option value="series">Shows</option>
+            </select>
+            <button type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold shadow-lg hover:from-pink-600 hover:to-red-600 transition">Search</button>
+          </form>
+          <div id="genreFilterResults"></div>
+          <div class="flex justify-center mt-4"><button id="loadMoreBtn" class="hidden px-6 py-2 rounded-lg bg-gray-700 text-white font-bold hover:bg-gray-600 transition">Load More</button></div>
+        </div>
+      </div>
+      <footer class="text-center mt-10 text-gray-400">
+        <small>Powered by <a href="https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/details" target="_blank" class="underline hover:text-red-400">Streaming Availability API</a></small>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

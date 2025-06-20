@@ -1,0 +1,5 @@
+/* Remove most styles, keep only image sizing for fallback */
+.movie img {
+  width: 80px;
+  border-radius: 0.5rem;
+}
